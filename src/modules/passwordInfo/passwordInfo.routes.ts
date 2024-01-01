@@ -13,6 +13,7 @@ class PasswordInfoRoute{
 
     routes(){
         this.router.get('/getAll', this.controller.getAll)
+        this.router.post('/insert', this.controller.insert)
     }
 }
 

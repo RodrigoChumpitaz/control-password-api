@@ -28,7 +28,9 @@
                             "@server": ["./src/server"],
                             "@domain": ["./src/modules/passwordInfo/domain"],
                             "@useCases": ["./src/modules/passwordInfo/application"],
-                            "@infra": ["./src/modules/passwordInfo/infraestructure"]
+                            "@infra": ["./src/modules/passwordInfo/infraestructure"],
+                            "@core" : ["./src/core"],
+                            "@utils" : ["./src/utils"]
                             // "@passwordModel": ["./src/modules/passwordInfo/infraestructure/model"]
                         }
                     }

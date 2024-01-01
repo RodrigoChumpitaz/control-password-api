@@ -1,51 +1,25 @@
-# Base Node Project
-Estructura base para proyectos de node con typescript
+# Proyecto de Gestión de Información de Contraseñas
+
+Este proyecto es una aplicación de servidor Node.js construida con TypeScript y Express. Proporciona una API para gestionar la información de contraseñas de los usuarios.
 
 ## Características Principales
 
-- **Express:** Framework de Node.js para construir aplicaciones web y APIs.
-- **ESLint:** Herramienta para identificar y arreglar patrones de código problemáticos.
-- **Babel:** Transpilador de JavaScript para compatibilidad con versiones anteriores y características avanzadas.
-- **Prettier:** Formateador de código para mantener un estilo consistente.
+- **Gestión de Contraseñas:** Los usuarios pueden almacenar información de contraseñas sugeridas y obtener una versión encriptada de la misma. La contraseña encriptada se almacena en la base de datos junto con la contraseña sugerida.
 
-## Requisitos Previos
+- **Encriptación de Contraseñas:** Las contraseñas sugeridas por los usuarios se encriptan utilizando un servicio de encriptación antes de ser almacenadas en la base de datos.
 
-Asegúrate de tener instalado [Node.js](https://nodejs.org/) en tu máquina.
+- **Validación de Contraseñas Encriptadas:** Antes de almacenar una contraseña encriptada, se valida que cumpla con un patrón específico. Si no lo hace, se devuelve un error.
 
-## Configuración
+- **Manejo de Errores Personalizado:** El proyecto incluye clases personalizadas para manejar errores y responder con mensajes de error detallados.
 
-1. Clona o haz un fork del repositorio:
+- **Registro de Actividad:** Se utiliza el middleware `morgan` para registrar las solicitudes HTTP en el servidor.
 
-   ```bash
-   git clone https://github.com/RodrigoChumpitaz/base-express-project
-   git fork https://github.com/usuario-original/proyecto-base-express.git
-   cd base-express-project
-   npm i
-## Scripts disponibles
+## Estructura del Proyecto
 
-- **build:** Transpila el código con Babel.
-- **start:** Ejecuta el código transpilado en modo PROD
-- **dev:** Inicia el servidor en modo de desarrollo.
+El proyecto sigue una estructura de diseño orientado a dominios, con la lógica de negocio encapsulada en el dominio `passwordInfo`. La lógica de aplicación se encuentra en `passwordInfo.application.ts`, que utiliza un repositorio para interactuar con la base de datos. El repositorio se implementa en `password.infraestructure.ts`, que utiliza Mongoose para interactuar con la base de datos MongoDB.
 
-## Estructura del proyecto
-   ```bash
-      ├── .eslintrc.json
-      ├── .gitignore
-      ├── .nvmrc
-      ├── .prettierrc
-      ├── babel.config.js
-      ├── build/
-      ├── package.json
-      ├── README.md
-      ├── src/
-      │   ├── index.ts
-      └── tsconfig.json
-   ```
-## Nota
-Después de clonar o hacer fork del repositorio, puedes eliminar el historial de Git existente y comenzar un nuevo repositorio con estos pasos:
-```bash
-      rm -rf .git
-      git init
-      git add .
-      git commit -m "Initial commit"
-   ```
+El proyecto también incluye una capa de infraestructura que contiene DTOs para mapear entre los modelos de dominio y los modelos de base de datos, y una capa de controladores que maneja las solicitudes HTTP y responde con los resultados de la lógica de aplicación.
+
+## Cómo Empezar
+
+Para empezar a utilizar este proyecto, clona el repositorio, instala las dependencias con `npm i` y ejecuta el servidor con `npm run dev`.
